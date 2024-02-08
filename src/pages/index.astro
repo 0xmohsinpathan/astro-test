@@ -1,11 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Counter from "../components/Counter.tsx";
-import "../style.css";
+import App from "./app";
 ---
 
 <Layout title="counter application">
-	<main class="h-dvh flex justify-center items-center text-white text-5xl flex-col">
-		<Counter client:load/>
-	</main>
+	<App client:load />
 </Layout>
