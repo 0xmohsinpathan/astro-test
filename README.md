@@ -1,4 +1,4 @@
-# Astro Starter Kit: Basics
+# Astro Todo Application: [Demo](https://astro-todo-application.vercel.app/)
 
 ```sh
 npm create astro@latest -- --template basics
