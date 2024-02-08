@@ -11,7 +11,7 @@ function renderTasks() {
   if (todos.length > 0) {
     renderedTasks = todos.map((value, index) => (
       <div key={ index } className={ `relative flex items-center justify-between ${value.text.length >= 50 ? "mr-4 hover:mr-3" : ""}` }>
-        <div className={ `flex justify-between items-center  py-2 px-2 w-full my-2 mx-2  bg-opacity-10 border-opacity-25  border-2 rounded-md duration-500` } >
+        <div className={ `flex justify-between items-center  py-2 px-2 w-full my-2 mx-2  bg-opacity-10 border-opacity-25  border-2 rounded-md duration-500 ${value.completedStyle}` } >
           <div className={ `flex justify-around items-center me-4 gap-4 w-[80%]` }>
             <div className="checkbox-wrapper">
               <input checked={ value.completed } onChange={ () => isCompletedTodo(value.id) } type="checkbox" />

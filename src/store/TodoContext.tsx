@@ -6,6 +6,7 @@ type Todo = {
   id: string;
   text: string;
   completed: boolean;
+  completedStyle: string;
 }
 
 type TodoContextType = {
@@ -20,13 +21,13 @@ export const TodoContext = createContext<TodoContextType | null>(null);
 
 export const TodoProvider = ({ children }: { children: React.ReactNode }) => {
   const [todos, setTodos] = useState<Todo[]>([
-    { id: '1', text: 'Learn React', completed: false },
-    { id: '2', text: 'Learn TypeScript', completed: false },
-    { id: '3', text: 'Learn Astro', completed: false },
+    { id: '1', text: 'Learn React', completed: false, completedStyle: ' border-yellow-700 bg-yellow-400' },
+    { id: '2', text: 'Learn TypeScript', completed: false, completedStyle: ' border-yellow-700 bg-yellow-400' },
+    { id: '3', text: 'Learn Astro', completed: false, completedStyle: ' border-yellow-700 bg-yellow-400' },
   ])
 
   const addTodo = (text: string): void => {
-    setTodos([{ id: Date.now().toString(), text, completed: false }, ...todos])
+    setTodos([{ id: Date.now().toString(), text, completed: false, completedStyle: ' border-yellow-700 bg-yellow-400' }, ...todos])
   }
 
   const removeTodo = (id: string): void => {
@@ -34,7 +35,7 @@ export const TodoProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const isCompletedTodo = (id: string): void => {
-    setTodos(todos.map((todo) => todo.id == id ? { ...todo, completed: !todo.completed } : todo))
+    setTodos(todos.map((todo) => todo.id == id ? { ...todo, completed: !todo.completed, completedStyle: !todo.completed ? ' border-green-700 bg-green-400' : ' border-yellow-700 bg-yellow-400'} : todo))
   }
 
   return (
